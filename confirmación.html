@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lluvia de Corazones Blancos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #FFC0CB;
+        }
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: white;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img src="gato-besando-a-la-camara.gif" class="img-inicio">
+    <div class="texto-gracias">
+        <h1>Gracias por elegir estar conmigo este 14 de febrero. Espero poder demostrar lo valiosa e importante que eres para mí. Soy el hombre más afortunado de tenerte en esta vida.</h1>
+    </div>
+
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '🤍';
+            document.body.appendChild(heart);
+            
+            const startPos = Math.random() * window.innerWidth;
+            heart.style.left = `${startPos}px`;
+            heart.style.top = `-30px`;
+            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHeart, 200);
+    </script>
+</body>
+</html>
